@@ -1,5 +1,6 @@
 import React from "react";
 import "./Desktop1.css";
+import Musicas from "./Musicas.jsx"
 
 function Desktop1() {
   return (
@@ -23,10 +24,10 @@ function Desktop1() {
         </div>
 
         <div className="Botões">
-          <img src="src/assets/botãoPlay.svg" alt="" id="play" />
-          <img src="src/assets/coraçãoDefault.svg" alt="" id="coração" />
-          <img src="src/assets/botãoDownload.svg" alt="" id="download" />
-          <img src="src/assets/3pontos.svg" alt="" id="pontos" />
+          <input type="image" src="src/assets/botãoPlay.svg" id="play" />
+          <input type="image" src="src\assets\coraçãoDefault.svg" id="coração" />
+          <input type="image" src="src/assets/botãoDownload.svg"  id="download" />
+          <input type="image" src="src/assets/3pontos.svg"  id="pontos" />
         </div>
 
         <div className="Playlist">
@@ -38,62 +39,9 @@ function Desktop1() {
           <img src="src/assets/linha.svg" alt="" />
 
           <div className="Musicas">
-            <div className="Um">
-              <div className="MusicasNomes">
-                <p id="numero">1</p>
-                <div>
-                  <p>The Zephyr Song</p>
-                  <p>Red Hot Chili Peppers</p>
-                </div>
-              </div>
-              <p id="musicaAlbum">By The Way</p>
-              <div className="MusicasSimbolos">
-                <img
-                  src="src/assets/coraçãoDefault.svg"
-                  alt=""
-                  id="coraçãomsc"
-                />
-                <img src="src/assets/lixo.svg" alt="" id="lixo" />
-              </div>
-            </div>
-
-            <div className="Dois">
-              <div className="MusicasNomes">
-                <p id="numero">2</p>
-                <div>
-                  <p>Talk</p>
-                  <p>Coldplay</p>
-                </div>
-              </div>
-              <p id="musicaAlbum">X&Y</p>
-              <div className="MusicasSimbolos">
-                <img
-                  src="src/assets/coraçãoDefault.svg"
-                  alt=""
-                  id="coraçãomsc"
-                />
-                <img src="src/assets/lixo.svg" alt="" id="lixo" />
-              </div>
-            </div>
-
-            <div className="Tres">
-              <div className="MusicasNomes">
-                <p id="numero">3</p>
-                <div>
-                  <p>Cidade Negra</p>
-                  <p>Firmamento</p>
-                </div>
-              </div>
-              <p id="musicaAlbum">Cidade Negra Acústico MTV</p>
-              <div className="MusicasSimbolos">
-                <img
-                  src="src/assets/coraçãoDefault.svg"
-                  alt=""
-                  id="coraçãomsc"
-                />
-                <img src="src/assets/lixo.svg" alt="" id="lixo" />
-              </div>
-            </div>
+            <Musicas numero = {1} musica = "The Zephyr Song" artista = "Red Hot Chili Peppers" album = "By The Way" id = "coraçãomsc1" />
+            <Musicas numero = {2} musica = "Talk" artista = "Coldplay" album = "X&Y" id = "coraçãomsc2" />
+            <Musicas numero = {3} musica = "Cidade Negra" artista = "Firmamento" album = "Cidade Negra Acústico MTV" id = "coraçãomsc3" />
           </div>
         </div>
       </div>

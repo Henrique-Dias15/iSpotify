@@ -1,0 +1,61 @@
+#titulo,
+#album {
+  width: 20.83vw;
+  height: 1.95vh;
+}
+
+#relogio {
+  width: 5.5vw;
+  height: 2.92vh;
+}
+
+.Musicas {
+  height: 24vh;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.Um {
+  display: flex;
+  flex-wrap: nowrap;
+  margin-top: 1.36vh;
+  color: var(--cinza2);
+  align-items: center;
+  justify-content: space-between;
+}
+
+.MusicasNomes,
+.MusicasSimbolos {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.MusicasNomes,
+#musicaAlbum {
+  width: 20.83vw;
+  height: 1.95vh;
+}
+
+.MusicasSimbolos {
+  width: 3.5vw;
+  height: 2.92vh;
+  margin-right: 1.2vw;
+  justify-content: space-between;
+}
+
+#coraçãomsc1, 
+#coraçãomsc2, 
+#coraçãomsc3 {
+  height: 3.9vh;
+}
+
+#lixo {
+  height: 2.44vh;
+}
+
+#numero {
+  margin-right: 1.45vw;
+}
