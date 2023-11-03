@@ -1,166 +1,186 @@
-/* Geral */
-
+/* Variáveis de cores */
 :root {
-    --azul: #17A6E4;
-    --verde: #3FE168;
-    --cinza: #CCCCCC;
-    --cinza2: #D9D9D9;
-    --preto: #000000;
-    --branco: #FFFFFF;
+  --azul: #17a6e4;
+  --verde: #3fe168;
+  --cinza: #cccccc;
+  --cinza2: #d9d9d9;
 }
 
+/* Reset de estilos padrão */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Inter', sans-serif;   
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  font-size: 1.66vh;
+  color: white;
 }
-  
+
+/* Estilos gerais de texto */
+h1 {
+  font-size: 2.8em;
+}
+
+/* Layout principal */
 .Display {
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    flex-wrap: nowrap;
-  }
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-wrap: nowrap;
+}
 
 .SideBar {
-    height: 100vh;
-    width: 15vw;
-    background-color: var(--preto);
+  height: 100vh;
+  width: 15vw;
+  background-color: black;
 }
 
 .Main {
-    height: 100vh;
-    width: 85vw;
-    background: linear-gradient(180deg, var(--azul) 0%, var(--preto) 85%); 
-    padding-left: 2vw;
-    padding-right: 3vw;
-    display: flex;
-    flex-direction: column;
+  height: 100vh;
+  width: 85vw;
+  background: linear-gradient(180deg, var(--azul) 0%, black 85%);
+  padding: 2vw 3vw;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
 }
 
 /* Informações da Playlist */
-
 .Infos {
-    margin-top: 20vh;
-    height: 22vh;
-    display: flex;
-    align-items: center;
+  margin-top: 19.9vh;
+  height: 21.8vh;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: end;
+}
+
+.Infos img {
+  height: 21.8vh;
+  width: 21.8vh;
 }
 
 .InfosTexto {
-    display: flex;
-    flex-direction: column;
-    height: 22vh;
-    width: 49vw;
-    margin-left: 2vw;
-    color: white;
-    justify-content: end;
-    font-weight: bold;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  height: 14.9vh;
+  margin-left: 2.9vw;
+  justify-content: space-around;
+  font-weight: bold;
 }
 
-.Infos h1,
-.Infos h2 {
-    color: white;
-    margin-bottom: 12px;
+.InfosQuantidades {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
 }
 
-.Infos h1 {
-    font-size: 48px;
-}
-
-.Infos h2 {
-    font-size: 17px;
-}
-
-.InfosQuantidade {
-    display: flex;
-}
-
-.InfosQuantidade h3 {
-    font-size: 17px;
-}
-
-.InfosQuantidade p {
-    margin-left: 14px;
-    color: var(--cinza);
+.InfosQuantidades p {
+  color: var(--cinza);
 }
 
 /* Botões de controlar a playlist */
-
 .Botões {
-    margin-top: 10vh;
-    height: 4vh;
-    width: 18vw;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  height: 6.34vh;
+  width: 13.5vw;
+  margin-top: 10vh;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#play {
+  height: 6.34vh;
+}
+
+#coração {
+  height: 5.07vh;
+}
+
+#download {
+  height: 3.51vh;
+}
+
+#pontos {
+  height: 0.78vh;
 }
 
 /* Músicas */
-
 .Playlist {
-    margin-top: 5vh;
-    display: flex;
-    flex-direction: column;
+  margin-top: 5vh;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
 }
 
 .Cabeçalho {
-    color: var(--cinza2);
-    font-size: 18px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 2vh;
+  color: var(--cinza2);
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2vh;
 }
 
 #titulo,
 #album {
-    width: 300px;
-    height: 20px;
+  width: 20.83vw;
+  height: 1.95vh;
 }
 
 #relogio {
-    width: 80px;
-    height: 30px;   
+  width: 5.5vw;
+  height: 2.92vh;
 }
 
 .Musicas {
-    height: 24vh;
-    display: flex;
-    flex-direction: column;
-    justify-content:space-evenly;
+  height: 24vh;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
 .Um,
 .Dois,
 .Tres {
-    display: flex;
-    margin-top: 14px;
-    color: var(--cinza2);
-    font-size: 18px;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  flex-wrap: nowrap;
+  margin-top: 1.36vh;
+  color: var(--cinza2);
+  align-items: center;
+  justify-content: space-between;
 }
 
 .MusicasNomes,
 .MusicasSimbolos {
-    display: flex;
-    align-items: center;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
 }
 
 .MusicasNomes,
 #musicaAlbum {
-    width: 300px;
-    height: 30px;
+  width: 20.83vw;
+  height: 1.95vh;
 }
 
 .MusicasSimbolos {
-    width: 80px;
-    height: 30px;   
-    justify-content: space-between;
+  width: 3.5vw;
+  height: 2.92vh;
+  margin-right: 1.2vw;
+  justify-content: space-between;
+}
+
+#coraçãomsc {
+  height: 3.9vh;
+}
+
+#lixo {
+  height: 2.44vh;
 }
 
 #numero {
-    margin-right: 21px;
+  margin-right: 1.45vw;
 }
