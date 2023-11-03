@@ -1,9 +1,16 @@
 import React from "react";
 import "./Musicas.css";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
-const Musicas = ({ numero, musica, artista, album, id }) => {
+
+const Musicas = ({ numero, musica, artista, album, id,desk  }) => {
   const [coração, setCoração] = useState("src/assets/coraçãoDefault.svg");
+  
+  const handleLixoClick = () => {
+    window.location.replace(desk);
+  };
+
 
   const changeCoração = () => {
     if(coração == "src/assets/coraçãoDefault.svg") {
@@ -25,7 +32,7 @@ const Musicas = ({ numero, musica, artista, album, id }) => {
       <p id="musicaAlbum">{album}</p>
       <div className="MusicasSimbolos">
         <input type="image" id={id} src={coração} onClick = {() => changeCoração()}/>
-        <img src="src\assets\lixo.svg" id="lixo"/>
+        <Link to={desk}><img src="src\assets\lixo.svg" id="lixo" onClick={handleLixoClick}/> </Link>
       </div>
     </div>
   );

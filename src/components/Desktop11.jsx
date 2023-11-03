@@ -37,7 +37,7 @@ function Desktop1() {
             <img src="src/assets/relogio.svg" alt="" id="relogio" />
           </div>
           <img src="src/assets/linha.svg" alt="" />
-
+            
           <div className="Musicas">
           </div>
         </div>

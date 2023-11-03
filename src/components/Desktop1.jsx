@@ -2,6 +2,12 @@ import React from "react";
 import "./Desktop1.css";
 import Musicas from "./Musicas.jsx"
 
+
+//2 - Reaproveitamento de estrutura
+
+import { Outlet } from "react-router-dom";
+
+
 function Desktop1() {
   return (
     <div className="Display">
@@ -37,12 +43,14 @@ function Desktop1() {
             <img src="src/assets/relogio.svg" alt="" id="relogio" />
           </div>
           <img src="src/assets/linha.svg" alt="" />
-
+         
           <div className="Musicas">
-            <Musicas numero = {1} musica = "The Zephyr Song" artista = "Red Hot Chili Peppers" album = "By The Way" id = "coraçãomsc1" />
-            <Musicas numero = {2} musica = "Talk" artista = "Coldplay" album = "X&Y" id = "coraçãomsc2" />
-            <Musicas numero = {3} musica = "Cidade Negra" artista = "Firmamento" album = "Cidade Negra Acústico MTV" id = "coraçãomsc3" />
+            
+            <Musicas numero = {1} musica = "The Zephyr Song" artista = "Red Hot Chili Peppers" album = "By The Way" id = "coraçãomsc1" desk="Desktop2" />
+            <Musicas numero = {2} musica = "Talk" artista = "Coldplay" album = "X&Y" id = "coraçãomsc2" desk="Desktop3" />
+            <Musicas numero = {3} musica = "Cidade Negra" artista = "Firmamento" album = "Cidade Negra Acústico MTV" id = "coraçãomsc3" desk="Desktop4"/>
           </div>
+          
         </div>
       </div>
     </div>
