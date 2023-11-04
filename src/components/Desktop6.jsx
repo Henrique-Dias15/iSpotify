@@ -39,7 +39,7 @@ function Desktop1() {
           <img src="src/assets/linha.svg" alt="" />
 
           <div className="Musicas">
-            <Musicas numero = {1} musica = "Talk" artista = "Coldplay" album = "X&Y" id = "coraçãomsc2" />
+            <Musicas numero = {1} musica = "Talk" artista = "Coldplay" album = "X&Y" id = "coraçãomsc2"  desk="Desktop11" />
           </div>
         </div>
       </div>
