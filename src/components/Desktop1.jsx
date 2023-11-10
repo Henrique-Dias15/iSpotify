@@ -46,9 +46,9 @@ function Desktop1() {
          
           <div className="Musicas">
             
-            <Musicas numero = {1} musica = "The Zephyr Song" artista = "Red Hot Chili Peppers" album = "By The Way" id = "coraçãomsc1" desk="Desktop2" />
-            <Musicas numero = {2} musica = "Talk" artista = "Coldplay" album = "X&Y" id = "coraçãomsc2" desk="Desktop3" />
-            <Musicas numero = {3} musica = "Cidade Negra" artista = "Firmamento" album = "Cidade Negra Acústico MTV" id = "coraçãomsc3" desk="Desktop4"/>
+            <Musicas  id = "coraçãomsc1" />
+           {/*  <Musicas numero = {2} musica = "Talk" artista = "Coldplay" album = "X&Y" id = "coraçãomsc2" desk="Desktop3" />
+            <Musicas numero = {3} musica = "Cidade Negra" artista = "Firmamento" album = "Cidade Negra Acústico MTV" id = "coraçãomsc3" /> */}
           </div>
           
         </div>

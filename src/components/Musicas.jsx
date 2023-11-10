@@ -4,15 +4,44 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 
-const Musicas = ({ numero, musica, artista, album, id,desk  }) => {
+const Musicas = ({ numero, musica, artista, album, id,}) => {
   const [coração, setCoração] = useState("src/assets/coraçãoDefault.svg");
+
+
+  const [listaMusica, setListaMusica] = useState([
+    {
+      numero:"1",
+      musica:"The Zephyr Song",
+      artista:"Red Hot Chili Peppers",
+      album:"By The Way",
+    },
+    {
+      numero:"2",
+      musica:"Talk",
+      artista:"Coldplay",
+      album:"X&Y",
+    },
+    {
+      numero: "3",
+      musica: "Firmamento",
+      artista: "Cidade Negra",
+      album: "Cidade Negra Acústico MTV",
+    },
+  ]);
   
-  const handleLixoClick = () => {
+  
+  function removermusica(index) {
+    const novaLista = listaMusica.filter((musica,i) => i !== index)
+    setListaMusica(novaLista)
+  }
+  
+ /*  const handleLixoClick = () => {
     window.location.replace(desk);
-  };
+  }; */
 
 
-  const changeCoração = () => {
+  const changeCoração = (index) => {
+    const linhacoração = coração;
     if(coração == "src/assets/coraçãoDefault.svg") {
       setCoração("src/assets/coraçãoVerde.svg");
     } else {
@@ -21,20 +50,29 @@ const Musicas = ({ numero, musica, artista, album, id,desk  }) => {
   }
 
   return (
-    <div className="Musica">
-      <div className="MusicasNomes">
-        <p id="numero">{numero}</p>
         <div>   
-          <p>{musica}</p>
-          <p>{artista}</p>
+          {listaMusica.map((musica,index) => {
+            return(
+            <div className="Musica"> 
+               <div className="MusicasNomes">
+                  <p id="numero">{musica.numero}</p>
+                  <div> 
+                  <p>{musica.musica}</p>
+                  <p>{musica.artista}</p>
+                  </div>
+                  </div>
+                  <p id="musicaAlbum">{musica.album}</p>
+                  <div className="MusicasSimbolos">
+            <input type="image" id={id} src={coração} onClick = {() => changeCoração(index)}/>
+            <button onClick={ () => removermusica(index)} ><img src="src\assets\lixo.svg" id="lixo" /></button>
+                   
+                  </div>
+                </div>
+            
+          );
+          })}
+         
         </div>
-      </div>
-      <p id="musicaAlbum">{album}</p>
-      <div className="MusicasSimbolos">
-        <input type="image" id={id} src={coração} onClick = {() => changeCoração()}/>
-        <Link to={desk}><img src="src\assets\lixo.svg" id="lixo" onClick={handleLixoClick}/> </Link>
-      </div>
-    </div>
   );
 };
 
