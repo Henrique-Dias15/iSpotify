@@ -1,0 +1,102 @@
+/* Variáveis de cores */
+:root {
+  --azul: #17a6e4;
+  --verde: #3fe168;
+  --cinza: #cccccc;
+  --cinza2: #d9d9d9;
+}
+
+/* Reset de estilos padrão */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  font-size: 1.66vh;
+  color: white;
+}
+
+/* Estilos gerais de texto */
+h1 {
+  font-size: 2.8em;
+}
+
+/* Layout principal */
+.Display {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.Main {
+  height: 100vh;
+  width: 85vw;
+  background: #111111;
+  padding: 2vw 3vw;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+}
+
+/* Side Bar */
+
+.SideBar {
+  height: 100vh;
+  width: 15vw;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.SideBar h1 {
+  margin-top: 9.35vh;
+}
+
+.Artistas,
+.MusicasCurtidas {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2.97vh;
+}
+
+.Artistas img {
+  height: 2.2vh;
+  width: 2.2vh;
+  margin-right: 0.6vw;
+}
+
+.MusicasCurtidas img {
+  height: 3.5vh;
+  width: 1.8vw;
+  margin-right: 0.6vw;
+}
+
+.Logout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 0.7vw;
+  left: 0.7vw;
+  margin-top: 66vh;
+}
+
+.Logout p {
+  font-size: 2.6vh;
+}
+.Logout img {
+  margin-right: 0.6vw;
+}
+.divArtistas {
+  height: 3vh;
+  width: 1.4vw;
+  top: 2.3vh;
+  border-radius: 0.2vh;
+  border: solid red 1px;
+}
+
+.main h1 {
+    top:1.4vh;
+}
