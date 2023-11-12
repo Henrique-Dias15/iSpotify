@@ -1,6 +1,6 @@
 import React from "react";
 import "./Desktop2.css";
-
+import Artistas from "./Artistas";
 function Desktop2() {
   return (
     <div className="Display">
@@ -14,14 +14,15 @@ function Desktop2() {
           <img src="src\assets\Coração Cheio.svg" />
           <p>Músicas Curtidas</p>
         </div>
-        <div class="Logout">
+        <div className="Logout">
           <img src="src\assets\logout.svg" />
           <p>Logout</p>
         </div>
       </div>
       <div className="Main">
         <h1>Artistas</h1>
-        <div class="divArtistas"></div>
+        <div className="divArtistas"></div>
+        <Artistas></Artistas> 
       </div>
     </div>
   );
