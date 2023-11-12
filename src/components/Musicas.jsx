@@ -64,7 +64,7 @@ const Musicas = ({ numero, musica, artista, album, id,}) => {
                   <p id="musicaAlbum">{musica.album}</p>
                   <div className="MusicasSimbolos">
             <input type="image" id={id} src={coração} onClick = {() => changeCoração(index)}/>
-            <button onClick={ () => removermusica(index)} ><img src="src\assets\lixo.svg" id="lixo" /></button>
+            <input type="image" id="lixo" src="src\assets\lixo.svg" onClick={ () => removermusica(index)} />
                    
                   </div>
                 </div>
