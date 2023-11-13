@@ -1,0 +1,31 @@
+.ListaArtistas {
+    background-color: #1F1F1F;
+    border-radius: 10%;
+    width: 11.6vw;
+    height: 30.8vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.ListaArtistas img {
+    margin-top: 1.76vh;
+    margin-left: 1.2vw;
+    height: 17.6vh;
+    width: 17.6vh;
+    border-radius: 100%;
+}
+
+.ListaArtistas h1,
+.ListaArtistas p {
+    margin-left: 0.8vw;
+    font-size: 1.65vh;
+}
+
+.ListaArtistas p {
+    margin-top: 1.5vh;
+    color: #8C8C8C;
+}
+
+.ArtistasTexto {
+    margin-top: 4vh;
+}

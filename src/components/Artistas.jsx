@@ -1,23 +1,64 @@
 import React, { useState, useEffect } from 'react';
 import './Artistas.css';
-import api from './api.js';
 
-function Artistas() {
-  const [user, setUser] = useState({artist:''}); 
+const Artistas = () => {
 
-  useEffect(() => {
-    api.get("https://localhost:3030/api/songs/0GNq4xh8uFCyihPurnunf7")
-      .then((response) => {
-        setUser({ artist: response.data.artist });
-      })
-      .catch((err) => {
-        console.error("Oops! An error occurred: ", err);
-      });
-  }, []);
+  const [listArtistas, setListaArtistas] = useState ([
+    {
+      nome: "Engenheiros do Hawaii", 
+      imagem: "src/assets/images/engenheiros 1.svg",
+    },
+    {
+      nome: "Cidade Negra",
+      imagem: "src/assets/images/cidade 1.svg",
+    },
+    {
+      nome: "Capital Inicial",
+      imagem: "src/assets/images/capital 1.svg",
+    },
+    {
+      nome: "Skank",
+      imagem: "src/assets/images/skank 1.svg",
+    },
+    {
+      nome: "Paralamas do Sucesso",
+      imagem: "src/assets/images/paralalamas 1.svg",
+    },
+    {
+      nome: "Lulu Santo",
+      imagem: "src/assets/images/lulu 1.svg",
+    },
+    {
+      nome: "Cazuza",
+      imagem: "src/assets/images/cazuza 1.svg",
+    },
+    {
+      nome: "Kid Abelha",
+      imagem: "src/assets/images/kid 1.svg",
+    },
+    {
+      nome: "Biquini Cavadão",
+      imagem: "src/assets/images/biquini 1.svg",
+    },
+    {
+      nome: "O Rappa",
+      imagem: "src/assets/images/rappa 1.svg"
+    },
+  ]);
 
   return (
     <div>
-      <p>Nome:{user.artist}</p>
+      {listArtistas.map((artista, index) => {
+        return (
+          <div className='ListaArtistas'>
+            <img src={artista.imagem}/>
+            <div className='ArtistasTexto'>
+              <h1>{artista.nome}</h1>
+              <p>Artista</p>
+            </div>
+          </div>
+        );
+      })}
     </div>
   );
 }
