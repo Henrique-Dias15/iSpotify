@@ -47,7 +47,7 @@ const Artistas = () => {
   ]);
 
   return (
-    <div>
+    <div className="caixaArtistas">
       {listArtistas.map((artista, index) => {
         return (
           <div className='ListaArtistas'>
