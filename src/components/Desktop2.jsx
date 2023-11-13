@@ -20,7 +20,7 @@ function Desktop2() {
           <p>Logout</p>
         </div>
       </div>
-      <div className="Main">
+      <div className="Main2">
         <h1 id="titulo">Artistas</h1>
         <div className="divArtistas">
           <Artistas />
@@ -29,14 +29,5 @@ function Desktop2() {
     </div>
   );
 }
-
-/* Engenheiros do Hawaii
-[
-  {
-    "url": "https://i.scdn.co/image/ab67616d00001e02ff9ca10b55ce82ae553c8228",
-    "height": 300,
-    "width": 300
-  }
-] */
 
 export default Desktop2;
