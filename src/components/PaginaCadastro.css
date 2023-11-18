@@ -17,7 +17,7 @@
     justify-content: space-between;
 }
 
-.Formulario {
+.FormularioCadastro {
     height: 20vh;
     margin-top: 4vh;
     display: flex;
@@ -42,15 +42,15 @@
     
     background-image: url("src/assets/symbols/Email.svg");
     background-repeat: no-repeat;
-    background-position: 18vw 50%;
-    background-size: 3vh;
+    background-position: 18.3vw 50%;
+    background-size: 2.6vh;
 }
 
 .inputPassword{
     
     background-image: url("src/assets/symbols/Cadeado.svg");
     background-repeat: no-repeat;
-    background-position: 18.2vw 50%;
+    background-position: 18.5vw 50%;
     background-size: 1.8vh;
 }
 
@@ -59,7 +59,7 @@
     background-image: url("src/assets/symbols/Pessoa.svg");
     background-repeat: no-repeat;
     background-position: 18.2vw 50%;
-    background-size: 3vh;
+    background-size: 2.58vh;
 
 }
 

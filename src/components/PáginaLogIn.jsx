@@ -11,7 +11,7 @@ function PáginaLogIn() {
             <h1>iSpotify ®</h1>
             <h2>Música para todos.</h2>
         </div>
-        <div className='Formulario'>
+        <div className='FormularioLogin'>
             <input className="inputEmail"type="email" placeholder='Email'/>
             <input className="inputPassword" type="password" placeholder='Senha'/>
             <button className='btnEntrar'>ENTRAR</button>
