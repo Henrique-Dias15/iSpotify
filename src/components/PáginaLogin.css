@@ -19,9 +19,58 @@
 
 .Formulario {
     height: 20vh;
-    margin-top: 8vh;
+    margin-top: 4vh;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.inputEmail, .inputPassword{
+    background-color: #3C3C3C;
+    width: 20vw;
+    padding: 1vh;
+    height: 20vh;
+    margin-bottom: 3vh;
+    font-size: 2vh;
+    align-items: center;
+    justify-content: space-between;
+    border: 0;
+}
+
+.inputEmail{
+    
+    background-image: url("src/assets/symbols/Email.svg");
+    background-repeat: no-repeat;
+    background-position: 18vw 50%;
+    background-size: 3vh;
+}
+
+.inputPassword{
+    
+    background-image: url("src/assets/symbols/Cadeado.svg");
+    background-repeat: no-repeat;
+    background-position: 18.2vw 50%;
+    background-size: 1.8vh;
+}
+
+.btnEntrar{
+    margin-bottom: 2vh;
+    padding: 1vh;
+    width: 30vh;
+    height: 10vh;
+    border-radius: 5vh;
+    border: 0;
+    background-color: #FFFFFF;
+    color: black;
+    font-size: 1.7vh;
+    font-weight: bold;
+}
+
+
+.msgBottom{
+    display: flex;
+    font-size: 1.7vh;
     align-items: center;
     justify-content: space-between;
 }
