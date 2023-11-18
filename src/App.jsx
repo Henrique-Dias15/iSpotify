@@ -1,9 +1,9 @@
-import Desktop2 from './components/Desktop2.jsx'
+import PáginaLogIn from './components/PáginaLogIn.jsx'
 
 function App() {
   return (
       <div>
-        <Desktop2 />
+        <PáginaLogIn />
       </div>
   )
 }

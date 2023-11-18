@@ -104,8 +104,5 @@ h1 {
   padding-left: 3vw;
   height: 80vh;
   width: 85vw;
-  display: flex;
-  grid-template-columns: 100px 100px;
-  grid-template-rows: 100px 100px;
 }
 
