@@ -84,15 +84,16 @@ const handleCloseAlerta = (event, reason) => {
            
         </div>
         <div className='Alerta'>
-            <Stack sx={{ width: '200%' }} spacing={2}>
+            <Stack  className="Alerta" sx={{ width: '200%' }} spacing={2}>
         <Snackbar
+         className="Alerta"
           open={mostrarAlerta}
           autoHideDuration={6000}
           onClose={handleCloseAlerta}
         >
-          <Alert severity="error">
-            <AlertTitle>Error</AlertTitle>
-            Um dos campos está vazio — <strong>Verifique!</strong>
+          <Alert  className="Alerta" severity="error">
+            <AlertTitle  className="Alerta">Error</AlertTitle>
+            Um dos campos está vazio — <strong  className="Alerta">Verifique!</strong>
           </Alert>
         </Snackbar>
       </Stack>

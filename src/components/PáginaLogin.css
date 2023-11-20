@@ -1,11 +1,14 @@
 * {
-    background-color: #111111;
+    background-color: #111111; 
     color: #FFFFFF;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Inter", sans-serif;
 }
+
+
+
 
 .Titulos {
     margin-top: 24.9vh;

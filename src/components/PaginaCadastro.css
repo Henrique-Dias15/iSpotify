@@ -85,3 +85,7 @@
     justify-content: space-between;
 }
 
+.Alerta{
+    background-color: #FFF0F5;
+    color:red
+}
