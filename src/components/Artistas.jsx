@@ -2,8 +2,23 @@ import React, { useState, useEffect } from 'react';
 import './Artistas.css';
 import api  from  "./api.js"
 const Artistas = () => {
+  
+  const [apidata, setapidata] = useState([]);
 
-  const [listArtistas, setListaArtistas] = useState ([
+  useEffect(() => {
+    getArtists();
+  }, []);
+
+  async function getArtists() {
+    try {
+      const response = await api.get("/artists");
+      setapidata(response.data);
+      console.log("deu certo");
+    } catch (error) {
+      alert(error.response.data);
+    }
+  }
+  /* const [listArtistas, setListaArtistas] = useState ([
     {
       nome: "Engenheiros do Hawaii", 
       imagem: "src/assets/images/engenheiros 1.svg",
@@ -45,10 +60,21 @@ const Artistas = () => {
       imagem: "src/assets/images/rappa 1.svg"
     },
   ]);
-
+ */
   return (
     <div className="caixaArtistas">
-      {listArtistas.map((artista, index) => {
+         {apidata.map((e, i) => {
+        return (
+          <div className='ListaArtistas' key={i}>
+            <img src={e.image} />
+            <h1>{e.name}</h1>
+            <p>Artista</p>
+          </div>
+        );
+      })}
+   
+
+     {/*  {listArtistas.map((artista, index) => {
         return (
           <div className='ListaArtistas'>
             <img src={artista.imagem}/>
@@ -58,7 +84,7 @@ const Artistas = () => {
             
           </div>
         );
-      })}
+      })} */}
     </div>
   );
 }
