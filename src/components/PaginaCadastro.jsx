@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import "./PaginaCadastro.css"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import api  from  "./api.js"
 
 
@@ -9,6 +9,7 @@ function PaginaCadastro () {
     const[email,setEmail] = useState('');
     const[senha,setSenha] = useState('');
     const[name,setName] = useState('');
+    const navigate = useNavigate();
    
 
     async function handleSubmit() {
@@ -19,8 +20,7 @@ function PaginaCadastro () {
           password: senha,
           role: "user",
         });
-  
-        console.log("deu certo");
+        navigate("/");
       } catch (error) {
         
         alert(error.response?.data || "Erro desconhecido");

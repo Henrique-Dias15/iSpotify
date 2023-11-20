@@ -1,8 +1,23 @@
 import React from "react";
 import "./Desktop2.css";
 import Artistas from "./Artistas";
+import api  from  "./api.js"
+import { useNavigate} from "react-router-dom"
 
 function Desktop2() {
+
+  const navigate = useNavigate();
+  async function logout() {
+    try {
+      await api.post("/users/logout", {
+      });
+      navigate('/');
+    } catch (error) {
+      
+      alert(error.response?.data || "Erro desconhecido");
+    }
+  }
+
   return (
     <div className="Display">
       <div className="SideBar">
@@ -16,8 +31,7 @@ function Desktop2() {
           <p>Músicas Curtidas</p>
         </div>
         <div className="Logout">
-          <img src="src\assets\symbols\logout.svg" />
-          <p>Logout</p>
+          <button onClick={logout}> <img src="src\assets\symbols\logout.svg" />Logout</button>
         </div>
       </div>
       <div className="Main2">

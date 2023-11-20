@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Artistas.css';
-
+import api  from  "./api.js"
 const Artistas = () => {
 
   const [listArtistas, setListaArtistas] = useState ([
@@ -52,10 +52,10 @@ const Artistas = () => {
         return (
           <div className='ListaArtistas'>
             <img src={artista.imagem}/>
-            <div className='ArtistasTexto'>
+    
               <h1>{artista.nome}</h1>
               <p>Artista</p>
-            </div>
+            
           </div>
         );
       })}
