@@ -2,6 +2,11 @@ import React, {useEffect, useState} from 'react'
 import "./PaginaCadastro.css"
 import { Link, useNavigate } from "react-router-dom"
 import api  from  "./api.js"
+import Alert from '@mui/material/Alert';
+import AlertTitle from '@mui/material/AlertTitle';
+import Stack from '@mui/material/Stack';
+import Snackbar from '@mui/material/Snackbar';
+import styled from 'styled-components';
 
 
 function PaginaCadastro () {
@@ -10,9 +15,10 @@ function PaginaCadastro () {
     const[senha,setSenha] = useState('');
     const[name,setName] = useState('');
     const navigate = useNavigate();
-   
+    const inputs = [email, senha, name]  
+    const [mostrarAlerta, setMostrarAlerta] = useState(false);
 
-    async function handleSubmit() {
+    async function inscrever() {
       try {
         await api.post("/users", {
           name: name,
@@ -26,11 +32,33 @@ function PaginaCadastro () {
         alert(error.response?.data || "Erro desconhecido");
       }
     }
-  
+    function verificarInputsVazios(inputs) {
+      for (let i = 0; i < inputs.length; i++) {
+        if (!inputs[i] || inputs[i].trim() === '') {
+          return true; 
+        }
+      }
+      return false;
+    }
+    
 
-    const handleInscrever = () =>{
-        return Navigate("/")
-      };
+    function handleClick (){
+      verificarInputsVazios(inputs);
+      if (verificarInputsVazios(inputs)) {
+        setMostrarAlerta(true);
+      } else{
+        inscrever();
+      }
+    
+    }
+
+    const handleCloseAlerta = (event, reason) => {
+      if (reason === 'clickaway') {
+        return;
+      }
+      setMostrarAlerta(false);
+    };
+  
       
     return (
         <div className='PaginaCadastro'>
@@ -43,11 +71,26 @@ function PaginaCadastro () {
             <input className="inputEmail"type="email"   value={email} onChange={(e) => {setEmail(e.target.value);}} placeholder='Email'/>
             <input className="inputPassword" type="password"  value={senha} onChange={(e) => {setSenha(e.target.value);}}  placeholder='Crie uma Senha'/>
             <input className="inputName" type="name" value={name} onChange={(e) => {setName(e.target.value);}} placeholder='Como devemos chamar você?'/>
-            <button className='btnCadastrar' onClick={handleSubmit}>CADASTRAR</button>
+            <button className='btnCadastrar' onClick={handleClick}>CADASTRAR</button>
             <div className='msgBottom'>
               <p>Ja é um usuário do iSpotify?  <Link to="/">FAÇA LOGIN</Link></p>
             </div>
+
         </div>
+        <div className='Alerta'>
+            <Stack sx={{ width: '200%' }} spacing={2}>
+        <Snackbar
+          open={mostrarAlerta}
+          autoHideDuration={6000}
+          onClose={handleCloseAlerta}
+        >
+          <Alert severity="error">
+            <AlertTitle>Error</AlertTitle>
+            Um dos campos está vazio — <strong>Verifique!</strong>
+          </Alert>
+        </Snackbar>
+      </Stack>
+      </div>
     </div>
 
 )}

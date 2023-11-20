@@ -18,6 +18,10 @@ const Artistas = () => {
       alert(error.response.data);
     }
   }
+
+  const vetorArtistas = apidata.slice(0,10);
+
+ 
   /* const [listArtistas, setListaArtistas] = useState ([
     {
       nome: "Engenheiros do Hawaii", 
@@ -63,7 +67,7 @@ const Artistas = () => {
  */
   return (
     <div className="caixaArtistas">
-         {apidata.map((e, i) => {
+         {vetorArtistas.map((e, i) => {
         return (
           <div className='ListaArtistas' key={i}>
             <img src={e.image} />
