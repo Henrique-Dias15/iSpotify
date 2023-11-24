@@ -13,7 +13,7 @@
   box-sizing: border-box;
   font-family: "Inter", sans-serif;
   font-size: 1.66vh;
-  color: white;
+ /*  color: white; */
 }
 
 /* Estilos gerais de texto */
@@ -43,6 +43,7 @@ h1 {
   display: flex;
   flex-wrap: nowrap;
   flex-direction: column;
+  color:white;
 }
 
 /* Informações da Playlist */
@@ -67,6 +68,7 @@ h1 {
   margin-left: 2.9vw;
   justify-content: space-around;
   font-weight: bold;
+  color:white;
 }
 
 .InfosQuantidades {

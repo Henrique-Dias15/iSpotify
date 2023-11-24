@@ -1,12 +1,9 @@
 * {
-    background-color: #111111; 
-    color: #FFFFFF;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Inter", sans-serif;
 }
-
 
 
 
@@ -18,6 +15,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    color: #FFFFFF;
 }
 
 .FormularioLogin {
@@ -27,6 +25,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    color: #FFFFFF;
 }
 
 .inputEmail, .inputPassword{
@@ -39,6 +38,7 @@
     align-items: center;
     justify-content: space-between;
     border: 0;
+    color: #FFFFFF;
 }
 
 .inputEmail{
@@ -76,6 +76,11 @@
     display: flex;
     font-size: 1.7vh;
     align-items: center;
+    color: #FFFFFF;
     justify-content: space-between;
 }
 
+.msgBottom a{
+    color: #FFFFFF;
+
+}

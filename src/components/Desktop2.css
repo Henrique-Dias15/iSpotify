@@ -13,7 +13,7 @@
   box-sizing: border-box;
   font-family: "Inter", sans-serif;
   font-size: 1.66vh;
-  color: white;
+  /* color: white; */
 }
 
 /* Estilos gerais de texto */
@@ -27,6 +27,7 @@ h1 {
   width: 100vw;
   display: flex;
   flex-wrap: nowrap;
+  color: white;
   
 }
 
@@ -100,6 +101,9 @@ h1 {
   width: 1.8vw
 }
 
+.Logout button{
+  color: white;
+}
 
 
 /* Principal */

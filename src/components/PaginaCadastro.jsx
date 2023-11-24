@@ -77,10 +77,10 @@ function PaginaCadastro () {
             </div>
 
         </div>
-        <div className='Alerta'>
+        <div >
             <Stack className="Alerta" sx={{ width: '200%' }} spacing={2}>
         <Snackbar 
-          className="Alerta"
+          
           open={mostrarAlerta}
           autoHideDuration={6000}
           onClose={handleCloseAlerta}

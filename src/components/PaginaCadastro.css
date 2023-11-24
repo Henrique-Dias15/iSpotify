@@ -1,11 +1,4 @@
-* {
-    background-color: #111111;
-    color: #FFFFFF;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Inter", sans-serif;
-}
+
 
 .Titulos {
     margin-top: 24.9vh;
@@ -15,6 +8,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    color: #FFFFFF;
 }
 
 .FormularioCadastro {
@@ -24,6 +18,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    color: #FFFFFF;
 }
 
 .inputEmail, .inputPassword, .inputName{
@@ -36,6 +31,7 @@
     align-items: center;
     justify-content: space-between;
     border: 0;
+    color: #FFFFFF;
 }
 
 .inputEmail{
@@ -83,9 +79,6 @@
     font-size: 1.7vh;
     align-items: center;
     justify-content: space-between;
+    color: #FFFFFF;
 }
 
-.Alerta{
-    background-color: #FFF0F5;
-    color:red
-}
