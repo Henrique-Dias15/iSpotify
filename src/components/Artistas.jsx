@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import './Artistas.css';
 import api  from  "./api.js"
+import { Navigate, useNavigate} from "react-router-dom"
+
 const Artistas = () => {
   
   const [apidata, setapidata] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     getArtists();
@@ -24,10 +27,10 @@ const Artistas = () => {
  
   
   return (
-    <div className="caixaArtistas">
+    <div className="caixaArtistas" >
          {vetorArtistas.map((e, i) => {
         return (
-          <div className='ListaArtistas' key={i}>
+          <div className='ListaArtistas' onClick={ () =>{ navigate(`/artista/${e.id}`)}} key={i}>
             <img src={e.image} />
             <h1>{e.name}</h1>
             <p>Artista</p>

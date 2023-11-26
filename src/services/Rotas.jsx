@@ -1,4 +1,5 @@
 import ReactDOM from 'react-dom/client'
+import Desktop1 from '../components/Desktop1'
 import PáginaLogIn from '../components/PáginaLogIn'
 import PaginaCadastro from '../components/PaginaCadastro'
 import Desktop2 from '../components/Desktop2'
@@ -17,7 +18,11 @@ const router = createBrowserRouter([
     {
         path:"Desktop2",
         element: <Desktop2/>
-    }
+    },
+    {
+        path: "/artista/:id",
+        element: <Desktop1 />
+    },
 ]);
 
 

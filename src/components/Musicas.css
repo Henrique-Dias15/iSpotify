@@ -20,10 +20,11 @@
 .Musica {
   display: flex;
   flex-wrap: nowrap;
-  margin-top: 1.36vh;
+  margin-top: vh;
   color: var(--cinza2);
   align-items: center;
   justify-content: space-between;
+ 
 }
 
 .MusicasNomes,
@@ -31,14 +32,21 @@
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 3vh;
+  
 }
 
 .MusicasNomes,
 #musicaAlbum {
   width: 20.83vw;
-  height: 1.95vh;
+  
+  
 }
+
+#musicaAlbum{
+  height: 6vh;
+}
+
 
 .MusicasSimbolos {
   width: 3.5vw;
@@ -47,9 +55,7 @@
   justify-content: space-between;
 }
 
-#coraçãomsc1, 
-#coraçãomsc2, 
-#coraçãomsc3 {
+#coracao {
   height: 3.9vh;
 }
 
@@ -59,4 +65,9 @@
 
 #numero {
   margin-right: 1.45vw;
+ 
+}
+
+.Nomes{
+  margin-left: 0.5vh;
 }
