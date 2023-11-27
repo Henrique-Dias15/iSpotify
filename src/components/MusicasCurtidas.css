@@ -31,7 +31,11 @@
   }
 
   #genero{
-
     margin-right: 62vh ;
-    
+  }
+  #generoMusica{
+    height: 6vh;
+  }
+  #lixo{
+    margin-left: 5vh ;
   }

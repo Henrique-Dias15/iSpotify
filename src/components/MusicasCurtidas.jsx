@@ -35,35 +35,20 @@ const [nomeArtista,setNomeArtista ] = useState([]);
 
 
 
-
-
-
-async function getNomeArtista(){
-  try{ 
-     const artistIds = musicasCurtidas.map(musica => musica.artist_id);
-     console.log(artistIds);
-     const response = await api.get(`/artists/${artistIds}`);
-     setNomeArtista(response.data);
-    
-   }
-   catch (error) {
-    console.log(error);
-}
-}
-
-
-
-
-
-function removerMusicaCurtida(index) {
-  const novaLista = listaMusica.filter((i) => i !== index);
-  setListaMusica(novaLista);
-}
+  async function removerMusicaCurtida(index) {
+    try {
+      const IdparaDeletar = musicasCurtidas[index]?.id;
+      await api.delete(`/users-songs/${IdparaDeletar}`);
+      const novaLista = musicasCurtidas.filter((_, i) => i !== index);
+      setMusicasCurtidas(novaLista);
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
 useEffect(() => {
   async function loadData() {
     try {
-      
       const usuarioResponse = await api.get("/users/user");
       setUsuario(usuarioResponse.data);
       const musicasCurtidasResponse = await api.get(`/users-songs/users/${usuarioResponse.data.id}`);
@@ -81,13 +66,9 @@ useEffect(() => {
     }
   }
 
-
-
-  // Chama a função para carregar dados ao montar o componente
   loadData();
 }, []);
   
-const Nome = nomeArtista.map(musica => musica.name)
 
     return(
         <div className="Display">
