@@ -11,6 +11,8 @@ const Musicas = () => {
   const { id } = useParams();
   const [listaMusica, setListaMusica] = useState([]);
   const [fotoArtistas, setImagens] = useState([]);
+  const [idMusica, setMusicaID] = useState([]);
+
  async function getSongsById() {
     try {
       const response = await api.get(`/songs/artist/${id}`);
@@ -29,6 +31,17 @@ const Musicas = () => {
       console.log(error);
     }
   }
+  async function getMusica() {
+    try {
+      const response = await api.get(`/songs/${id}`);
+      setMusicaID(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+
+
   useEffect(() => {
     getSongsById();
     getArtistById();
@@ -56,6 +69,24 @@ const Musicas = () => {
     );
   }
 
+
+ function addCurtidas(){
+    try{
+       api.post(`/users-songs/${id}`, {
+    } );
+  }catch (error) {
+        alert(error.response?.data || "Erro desconhecido");
+      }
+    
+}
+
+function handlecurtir(){
+  addCurtidas();
+  getMusica();
+}
+
+
+
   return (
     <div>
       {listaMusica.map((musica, index) => {
@@ -74,7 +105,7 @@ const Musicas = () => {
                 type="image"
                 src={coracaobranco}
                 id="coracao"
-                onClick={() => changeCoração(index)}
+                onClick={() => handlecurtir()}
               />
               <input
                 type="image"

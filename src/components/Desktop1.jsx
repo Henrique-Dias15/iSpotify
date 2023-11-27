@@ -21,6 +21,7 @@ function Desktop1() {
   const [fotoArtistas, setImagens] = useState([]);
 
 
+
   async function getArtistById() {
     try {
       const response = await api.get(`/artists/${id}`);
@@ -40,7 +41,15 @@ function Desktop1() {
       alert(error.response?.data || "Erro desconhecido");
     }
   }
-
+  
+  async function getArtistById() {
+    try {
+      const response = await api.get(`/artists/${id}`);
+      setImagens(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
  
 
 useEffect(() => {
@@ -52,12 +61,16 @@ useEffect(() => {
       <div className="SideBar">
         <h1>iSpotify ®</h1>
         <div className="Artistas">
-          <img src={roda} />
-          <p>Artistas</p>
+          <button onClick={ () =>{ navigate(`/Desktop2`)}}>
+          <img src={roda} />Artistas
+          </button>
+         
         </div>
         <div className="MusicasCurtidas">
-          <img src={coracao}/>
+        <button onClick={ () =>{ navigate(`/MusicasCurtidas`)}} >
+          <img src={coracao} />
           <p>Músicas Curtidas</p>
+          </button>
         </div>
         <div className="Logout">
           <button onClick={logout}> <img src={logoutimg}/>Logout</button>

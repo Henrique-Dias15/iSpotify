@@ -121,3 +121,11 @@ h1 {
   width: 85vw;
 }
 
+.MusicasCurtidas button{
+  border: 0;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}

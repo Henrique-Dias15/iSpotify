@@ -4,6 +4,7 @@ import PáginaLogIn from '../components/PáginaLogIn'
 import PaginaCadastro from '../components/PaginaCadastro'
 import Desktop2 from '../components/Desktop2'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import MusicasCurtidas from '../components/MusicasCurtidas'
 
 const router = createBrowserRouter([
 
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
         path: "/artista/:id",
         element: <Desktop1 />
     },
+    {
+        path:"/MusicasCurtidas",
+        element: <MusicasCurtidas />
+    }
 ]);
 
 

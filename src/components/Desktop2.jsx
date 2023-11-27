@@ -4,9 +4,13 @@ import Artistas from "./Artistas";
 import api  from  "./api.js"
 import { useNavigate} from "react-router-dom"
 
+
+
+
 function Desktop2() {
 
   const navigate = useNavigate();
+
   async function logout() {
     try {
       await api.post("/users/logout", {
@@ -18,6 +22,11 @@ function Desktop2() {
     }
   }
 
+  
+
+
+
+
   return (
     <div className="Display">
       <div className="SideBar">
@@ -27,8 +36,10 @@ function Desktop2() {
           <p>Artistas</p>
         </div>
         <div className="MusicasCurtidas">
+          <button onClick={ () =>{ navigate(`/MusicasCurtidas`)}} >
           <img src="src\assets\symbols\Coração Cheio.svg" />
           <p>Músicas Curtidas</p>
+          </button>
         </div>
         <div className="Logout">
           <button onClick={logout}> <img src="src\assets\symbols\logout.svg" />Logout</button>

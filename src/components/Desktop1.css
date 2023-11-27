@@ -191,3 +191,12 @@ h1 {
 .Logout button{
   color: white;
 }
+
+.Artistas button{
+  border: 0;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
