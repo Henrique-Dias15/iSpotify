@@ -1,6 +1,6 @@
 import React,{ useEffect, useState } from "react";
 import "./MusicasCurtidas.css";
-import Musicas from "./Musicas.jsx"
+import lixo from "/src/assets/symbols/lixo.svg"
 import api from "./api";
 import { useNavigate} from "react-router-dom"
 import coracao from "/src/assets/symbols/Coração Cheio.svg"
@@ -16,11 +16,9 @@ import linha from "/src/assets/symbols/linha.svg"
 function MusicasCurtidas(){
 
 const navigate = useNavigate();
-
-const [musicasCurtidas,setMusicasCurtidas] = useState([]);
 const [usuario,setUsuario] = useState([]);
-
-
+const [musicasCurtidas,setMusicasCurtidas] = useState([]);
+const [nomeArtista,setNomeArtista ] = useState([]);
 
 
 
@@ -35,32 +33,61 @@ const [usuario,setUsuario] = useState([]);
     }
   }
 
-  async function getMusicasCurtidas() {
-    try {
-            const response = await api.get(`/users-songs/users/${usuario.id}`);
-            setMusicasCurtidas(response.data);
-          } catch (error) {
-            console.log(error);
-  }
+
+
+
+
+
+async function getNomeArtista(){
+  try{ 
+     const artistIds = musicasCurtidas.map(musica => musica.artist_id);
+     console.log(artistIds);
+     const response = await api.get(`/artists/${artistIds}`);
+     setNomeArtista(response.data);
+    
+   }
+   catch (error) {
+    console.log(error);
+}
 }
 
 
+
+
+
+function removerMusicaCurtida(index) {
+  const novaLista = listaMusica.filter((i) => i !== index);
+  setListaMusica(novaLista);
+}
+
+useEffect(() => {
+  async function loadData() {
+    try {
+      
+      const usuarioResponse = await api.get("/users/user");
+      setUsuario(usuarioResponse.data);
+      const musicasCurtidasResponse = await api.get(`/users-songs/users/${usuarioResponse.data.id}`);
+      setMusicasCurtidas(musicasCurtidasResponse.data);
+      const artistIds = musicasCurtidasResponse.data.map(musica => musica.artist_id);
+      const promises = artistIds.map(async (artistId) => {
+        const response = await api.get(`/artists/${artistId}`);
+        return response.data;
+      });
+      const nomesArtistas = await Promise.all(promises);
+      console.log(nomesArtistas);
+      setNomeArtista(nomesArtistas);
+    } catch (error) {
+      console.log("Erro ao carregar dados:", error);
+    }
+  }
+
+
+
+  // Chama a função para carregar dados ao montar o componente
+  loadData();
+}, []);
   
-  async function getUsuario() {
-    try {
-            const response = await api.get("/users/user");
-            setUsuario(response.data);
-          } catch (error) {
-            console.log(error);
-  }
-}
-
-  useEffect(() => {
-    getMusicasCurtidas();
-    getUsuario();
-  }, []);
-
-
+const Nome = nomeArtista.map(musica => musica.name)
 
     return(
         <div className="Display">
@@ -100,27 +127,28 @@ const [usuario,setUsuario] = useState([]);
         <div className="Playlist">
           <div className="Cabeçalho">
           <p >#TÍTULO</p>
-            <p id="album">Gênero</p>
+            <p id="genero">Gênero</p>
           </div>
           <img className="Divisao" src={linha} id="linha" />
           <div className="MusicasPagina">
           {musicasCurtidas.map((musica, index) => {
+            const nomeDoArtista = nomeArtista[index]?.name;
         return (
           <div className="Musica">
             <div className="MusicasNomes">
               <p id="numero">{index + 1}</p>
               <div className="Nomes">
                 <p>{musica.title}</p>
-                <p>{musica.artist}</p>
+                <p>{nomeDoArtista}</p>
               </div>
             </div>
-            <p id="musicaAlbum">{musica.genre}</p>
+            <p id="generoMusica">{musica.genre}</p>
             <div className="MusicasSimbolos">
               <input
                 type="image"
                 id="lixo"
                 src={lixo}
-                onClick={() => removermusica(index)}
+                onClick={() => removerMusicaCurtida(index)}
               />
             </div>
           </div>

@@ -12,6 +12,10 @@ const Musicas = () => {
   const [listaMusica, setListaMusica] = useState([]);
   const [fotoArtistas, setImagens] = useState([]);
   const [idMusica, setMusicaID] = useState([]);
+  const [usuario,setUsuario] = useState([]);
+
+  
+
 
  async function getSongsById() {
     try {
@@ -31,20 +35,22 @@ const Musicas = () => {
       console.log(error);
     }
   }
-  async function getMusica() {
-    try {
-      const response = await api.get(`/songs/${id}`);
-      setMusicaID(response.data);
-    } catch (error) {
-      console.log(error);
-    }
-  }
 
+  async function getUsuario() {
+    try {
+            const response = await api.get("/users/user");
+            setUsuario(response.data);
+           
+          } catch (error) {
+            console.log(error);
+  }
+}
 
 
   useEffect(() => {
     getSongsById();
     getArtistById();
+    getUsuario();
   }, []);
 
 
@@ -70,19 +76,20 @@ const Musicas = () => {
   }
 
 
- function addCurtidas(){
-    try{
-       api.post(`/users-songs/${id}`, {
-    } );
-  }catch (error) {
-        alert(error.response?.data || "Erro desconhecido");
-      }
-    
-}
+  function addCurtidas(index) {
+    try {
+      const idDaMusica = listaMusica[index]?.id;
+      if (idDaMusica) {
+        api.post(`/users-songs/${idDaMusica}`);
+      } 
+    } catch (error) {
+      alert(error.response?.data || "Erro desconhecido");
+    }
+  }
 
-function handlecurtir(){
-  addCurtidas();
-  getMusica();
+function handleCurtir(index){
+  addCurtidas(index);
+  changeCoração(index);
 }
 
 
@@ -91,11 +98,11 @@ function handlecurtir(){
     <div>
       {listaMusica.map((musica, index) => {
         return (
-          <div className="Musica">
+          <div className="Musica" key={index}>
             <div className="MusicasNomes">
               <p id="numero">{index + 1}</p>
               <div className="Nomes">
-                <p>{musica.title}</p>
+                <p>{musica.title},</p>
                 <p>{fotoArtistas.name}</p>
               </div>
             </div>
@@ -105,7 +112,7 @@ function handlecurtir(){
                 type="image"
                 src={coracaobranco}
                 id="coracao"
-                onClick={() => handlecurtir()}
+                onClick={() => handleCurtir(index)}
               />
               <input
                 type="image"
