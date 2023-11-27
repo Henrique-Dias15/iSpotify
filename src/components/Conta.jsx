@@ -20,9 +20,23 @@ import Alert from "@mui/material/Alert";
 import AlertTitle from "@mui/material/AlertTitle";
 import Stack from "@mui/material/Stack";
 import Snackbar from "@mui/material/Snackbar";
+import Modal from 'react-modal';
+
 
 function Conta() {
   const navigate = useNavigate();
+  const [useDados, changeDados] = useState ([]);
+  const [isModalOpen, setModalOpen] = useState(false);
+
+  const customStyles = {
+    overlay: {
+      backgroundColor: 'rgba(0, 0, 0, 0.5)', // Cor e opacidade do fundo do modal
+    }
+  };
+
+  const openModal = () => setModalOpen(true);
+  const closeModal = () => setModalOpen(false);
+
   async function logout() {
     try {
       await api.post("/users/logout", {});
@@ -31,6 +45,19 @@ function Conta() {
       alert(error.response?.data || "Erro desconhecido");
     }
   }
+
+  async function dadosUser(){
+    try {
+      const response = await api.get("/users/user", {});
+      changeDados(response.data);
+    } catch (error){
+        alert(error.response?.data || "Erro desconhecido");
+    }
+  }
+
+  useEffect(() => {
+    dadosUser();
+  }, []); 
 
   return (
     <div className="Display">
@@ -77,13 +104,19 @@ function Conta() {
       <div className="PaginaLogin">
         <div className="FormularioConta">
           <h1>Minha Conta</h1>
-          <input className="inputEmail" type="email" placeholder="Email" />
-          <input
-            className="inputPassword"
-            type="password"
-            placeholder="Senha"
-          />
-          <button className="btnTrocarEmail">Trocar Email</button>
+              <div>
+                <p className="inputName">{useDados.name}</p>
+                <p className="inputEmail">{useDados.email}</p>
+              </div>
+          <button className="btnTrocarEmail" onClick={openModal}>Trocar Email</button>
+          <Modal style={customStyles} className="mdTrocaSenha" isOpen={isModalOpen} onRequestClose={closeModal}>
+            <h1>Novo Email</h1>
+            <input type="email" className="inputEmail" placeholder="Email"/>
+            <div className="mdBotoes">
+              <button id="mdCancelar" onClick={closeModal}>Cancelar</button>
+              <button id="mdConfirmar" onClick={closeModal}>Confirmar</button>
+            </div>
+          </Modal>
           <button className="btnTrocarSenha">Trocar Senha</button>
         </div>
       </div>
