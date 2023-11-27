@@ -1,25 +1,12 @@
 import React from "react";
 import "./Conta.css";
 import { useEffect, useState } from "react";
-import Musicas from "./Musicas.jsx";
-import { useParams } from "react-router-dom";
 import api from "./api";
 import { useNavigate } from "react-router-dom";
 import coracao from "/src/assets/symbols/Coração Cheio.svg";
 import roda from "/src/assets/symbols/roda.svg";
 import rosto from "/src/assets/symbols/Conta.svg";
-import coracaonovo from "/src/assets/symbols/coraçãoDefault.svg";
-import botaoplay from "/src/assets/symbols/botãoPlay.svg";
-import pontos from "/src/assets/symbols/3pontos.svg";
-import botaodownload from "/src/assets/symbols/botãoDownload.svg";
 import logoutimg from "/src/assets/symbols/logout.svg";
-import linha from "/src/assets/symbols/linha.svg";
-import relogio from "/src/assets/symbols/relogio.svg";
-import PaginaCadastro from "./PaginaCadastro";
-import Alert from "@mui/material/Alert";
-import AlertTitle from "@mui/material/AlertTitle";
-import Stack from "@mui/material/Stack";
-import Snackbar from "@mui/material/Snackbar";
 import Modal from 'react-modal';
 
 
@@ -27,6 +14,9 @@ function Conta() {
   const navigate = useNavigate();
   const [useDados, changeDados] = useState ([]);
   const [isModalOpen, setModalOpen] = useState(false);
+  const [novoEmail, setNovoEmail] = useState("");
+
+
 
   const customStyles = {
     overlay: {
@@ -55,9 +45,25 @@ function Conta() {
     }
   }
 
+  async function TrocarEmail(){
+    try{
+      await api.put(`/users/${useDados.id}`, {
+        email : novoEmail,
+      });
+      dadosUser();
+    }catch (error){
+        alert(error.response?.data || "Erro desconhecido");
+    }
+  }
+
   useEffect(() => {
     dadosUser();
   }, []); 
+
+  function handleConfirmar(){
+    TrocarEmail();
+    closeModal();
+  }
 
   return (
     <div className="Display">
@@ -111,10 +117,12 @@ function Conta() {
           <button className="btnTrocarEmail" onClick={openModal}>Trocar Email</button>
           <Modal style={customStyles} className="mdTrocaSenha" isOpen={isModalOpen} onRequestClose={closeModal}>
             <h1>Novo Email</h1>
-            <input type="email" className="inputEmail" placeholder="Email"/>
+            <input type="email" className="inputEmail" value={novoEmail}  onChange={(e) => {
+            setNovoEmail(e.target.value);
+          }}placeholder="Email"/>
             <div className="mdBotoes">
               <button id="mdCancelar" onClick={closeModal}>Cancelar</button>
-              <button id="mdConfirmar" onClick={closeModal}>Confirmar</button>
+              <button id="mdConfirmar" onClick={handleConfirmar}>Confirmar</button>
             </div>
           </Modal>
           <button className="btnTrocarSenha">Trocar Senha</button>
