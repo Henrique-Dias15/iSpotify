@@ -3,6 +3,8 @@ import Desktop1 from '../components/Desktop1'
 import PáginaLogIn from '../components/PáginaLogIn'
 import PaginaCadastro from '../components/PaginaCadastro'
 import Desktop2 from '../components/Desktop2'
+import PaginaConta from '../components/Conta'
+
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import MusicasCurtidas from '../components/MusicasCurtidas'
 
@@ -27,6 +29,10 @@ const router = createBrowserRouter([
     {
         path:"/MusicasCurtidas",
         element: <MusicasCurtidas />
+    },
+    {
+        path:"/PaginaConta",
+        element: <PaginaConta />
     }
 ]);
 

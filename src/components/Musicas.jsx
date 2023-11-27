@@ -3,21 +3,18 @@ import "./Musicas.css";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import api from "./api";
-import coracaobranco from "/src/assets/symbols/coraçãoDefault.svg"
-import coracaoverde from "/src/assets/symbols/coraçãoVerde.svg"
-import lixo from "/src/assets/symbols/lixo.svg"
+import coracaobranco from "/src/assets/symbols/coraçãoDefault.svg";
+import coracaoverde from "/src/assets/symbols/coraçãoVerde.svg";
+import lixo from "/src/assets/symbols/lixo.svg";
 
 const Musicas = () => {
   const { id } = useParams();
   const [listaMusica, setListaMusica] = useState([]);
   const [fotoArtistas, setImagens] = useState([]);
   const [idMusica, setMusicaID] = useState([]);
-  const [usuario,setUsuario] = useState([]);
+  const [usuario, setUsuario] = useState([]);
 
-  
-
-
- async function getSongsById() {
+  async function getSongsById() {
     try {
       const response = await api.get(`/songs/artist/${id}`);
       console.log(response.data);
@@ -38,21 +35,18 @@ const Musicas = () => {
 
   async function getUsuario() {
     try {
-            const response = await api.get("/users/user");
-            setUsuario(response.data);
-           
-          } catch (error) {
-            console.log(error);
+      const response = await api.get("/users/user");
+      setUsuario(response.data);
+    } catch (error) {
+      console.log(error);
+    }
   }
-}
-
 
   useEffect(() => {
     getSongsById();
     getArtistById();
     getUsuario();
   }, []);
-
 
   function removermusica(index) {
     const novaLista = listaMusica.filter((i) => i !== index);
@@ -63,10 +57,10 @@ const Musicas = () => {
     setListaMusica(
       listaMusica.map((musicas, i) => {
         if (i === index) {
-          if (musicas.coração === coracaobranco ) {
-            return { ...musicas, coração: {coracaoverde} };
+          if (musicas.coração === coracaobranco) {
+            return { ...musicas, coração: { coracaoverde } };
           } else {
-            return { ...musicas, coração: {coracaobranco} };
+            return { ...musicas, coração: { coracaobranco } };
           }
         } else {
           return { ...musicas };
@@ -75,24 +69,21 @@ const Musicas = () => {
     );
   }
 
-
   function addCurtidas(index) {
     try {
       const idDaMusica = listaMusica[index]?.id;
       if (idDaMusica) {
         api.post(`/users-songs/${idDaMusica}`);
-      } 
+      }
     } catch (error) {
       alert(error.response?.data || "Erro desconhecido");
     }
   }
 
-function handleCurtir(index){
-  addCurtidas(index);
-  changeCoração(index);
-}
-
-
+  function handleCurtir(index) {
+    addCurtidas(index);
+    changeCoração(index);
+  }
 
   return (
     <div>

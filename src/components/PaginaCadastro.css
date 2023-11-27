@@ -1,84 +1,77 @@
-
-
 .Titulos {
-    margin-top: 24.9vh;
-    height: 15.5vh;
-    font-size:  2.4vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    color: #FFFFFF;
+  margin-top: 24.9vh;
+  height: 15.5vh;
+  font-size: 2.4vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  color: #ffffff;
 }
 
 .FormularioCadastro {
-    height: 20vh;
-    margin-top: 10vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    color: #FFFFFF;
+  height: 20vh;
+  margin-top: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  color: #ffffff;
 }
 
-.inputEmail, .inputPassword, .inputName{
-    background-color: #3C3C3C;
-    width: 20vw;
-    padding: 1vh;
-    height: 20vh;
-    margin-bottom: 3vh;
-    font-size: 2vh;
-    align-items: center;
-    justify-content: space-between;
-    border: 0;
-    color: #FFFFFF;
+.inputEmail,
+.inputPassword,
+.inputName {
+  background-color: #3c3c3c;
+  width: 20vw;
+  padding: 1vh;
+  height: 20vh;
+  margin-bottom: 3vh;
+  font-size: 2vh;
+  align-items: center;
+  justify-content: space-between;
+  border: 0;
+  color: #ffffff;
 }
 
-.inputEmail{
-    
-    background-image: url("src/assets/symbols/Email.svg");
-    background-repeat: no-repeat;
-    background-position: 18.3vw 50%;
-    background-size: 2.6vh;
+.inputEmail {
+  background-image: url("src/assets/symbols/Email.svg");
+  background-repeat: no-repeat;
+  background-position: 18.3vw 50%;
+  background-size: 2.6vh;
 }
 
-.inputPassword{
-    
-    background-image: url("src/assets/symbols/Cadeado.svg");
-    background-repeat: no-repeat;
-    background-position: 18.5vw 50%;
-    background-size: 1.8vh;
+.inputPassword {
+  background-image: url("src/assets/symbols/Cadeado.svg");
+  background-repeat: no-repeat;
+  background-position: 18.5vw 50%;
+  background-size: 1.8vh;
 }
 
-
-.inputName{
-    background-image: url("src/assets/symbols/Pessoa.svg");
-    background-repeat: no-repeat;
-    background-position: 18.2vw 50%;
-    background-size: 2.58vh;
-
+.inputName {
+  background-image: url("src/assets/symbols/Pessoa.svg");
+  background-repeat: no-repeat;
+  background-position: 18.2vw 50%;
+  background-size: 2.58vh;
 }
 
-
-.btnCadastrar{
-    margin-bottom: 2vh;
-    padding: 1vh;
-    width: 30vh;
-    height: 10vh;
-    border-radius: 5vh;
-    border: 0;
-    background-color: #3FE168;
-    color: white;
-    font-size: 1.7vh;
-    font-weight: bold;
+.btnCadastrar {
+  margin-bottom: 2vh;
+  padding: 1vh;
+  width: 30vh;
+  height: 10vh;
+  border-radius: 5vh;
+  border: 0;
+  background-color: #3fe168;
+  color: white;
+  font-size: 1.7vh;
+  font-weight: bold;
 }
 
-
-.msgBottom{
-    display: flex;
-    font-size: 1.7vh;
-    align-items: center;
-    justify-content: space-between;
-    color: #FFFFFF;
+.msgBottom {
+  display: flex;
+  font-size: 1.7vh;
+  align-items: center;
+  justify-content: space-between;
+  color: #ffffff;
 }
-

@@ -28,7 +28,6 @@ h1 {
   display: flex;
   flex-wrap: nowrap;
   color: white;
-  
 }
 
 .Main2 {
@@ -78,10 +77,10 @@ h1 {
   background-color: black;
 }
 
-.Logout{
+.Logout {
   background-color: black;
 }
-.Logout button{
+.Logout button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -92,19 +91,22 @@ h1 {
   background-color: black;
 }
 
+.Logout button:hover {
+  cursor: pointer;
+}
+
 .Logout p {
   font-size: 2.6vh;
 }
 .Logout img {
   margin-right: 0.6vw;
   height: 3vh;
-  width: 1.8vw
+  width: 1.8vw;
 }
 
-.Logout button{
+.Logout button {
   color: white;
 }
-
 
 /* Principal */
 
@@ -121,7 +123,7 @@ h1 {
   width: 85vw;
 }
 
-.MusicasCurtidas button{
+.MusicasCurtidas button {
   border: 0;
   background-color: black;
   display: flex;

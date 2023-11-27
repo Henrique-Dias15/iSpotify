@@ -24,7 +24,6 @@
   color: var(--cinza2);
   align-items: center;
   justify-content: space-between;
- 
 }
 
 .MusicasNomes,
@@ -33,20 +32,16 @@
   flex-wrap: nowrap;
   align-items: center;
   margin-bottom: 3vh;
-  
 }
 
 .MusicasNomes,
 #musicaAlbum {
   width: 20.83vw;
-  
-  
 }
 
-#musicaAlbum{
+#musicaAlbum {
   height: 6vh;
 }
-
 
 .MusicasSimbolos {
   width: 3.5vw;
@@ -65,9 +60,8 @@
 
 #numero {
   margin-right: 1.45vw;
- 
 }
 
-.Nomes{
+.Nomes {
   margin-left: 0.5vh;
 }

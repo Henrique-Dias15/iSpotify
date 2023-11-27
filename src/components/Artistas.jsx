@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import './Artistas.css';
-import api  from  "./api.js"
-import { Navigate, useNavigate} from "react-router-dom"
+import React, { useState, useEffect } from "react";
+import "./Artistas.css";
+import api from "./api.js";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const Artistas = () => {
-  
   const [apidata, setapidata] = useState([]);
   const navigate = useNavigate();
 
@@ -22,26 +21,27 @@ const Artistas = () => {
     }
   }
 
-  const vetorArtistas = apidata.slice(0,10);
+  const vetorArtistas = apidata.slice(0, 10);
 
- 
-  
   return (
-    <div className="caixaArtistas" >
-         {vetorArtistas.map((e, i) => {
+    <div className="caixaArtistas">
+      {vetorArtistas.map((e, i) => {
         return (
-          <div className='ListaArtistas' onClick={ () =>{ navigate(`/artista/${e.id}`)}} key={i}>
+          <div
+            className="ListaArtistas"
+            onClick={() => {
+              navigate(`/artista/${e.id}`);
+            }}
+            key={i}
+          >
             <img src={e.image} />
             <h1>{e.name}</h1>
             <p>Artista</p>
           </div>
         );
       })}
-   
-
-
     </div>
   );
-}
+};
 
 export default Artistas;

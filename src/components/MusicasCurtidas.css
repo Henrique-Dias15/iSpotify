@@ -1,41 +1,38 @@
 .BotõesMC {
-    height: 6.34vh;
-    width: 6vw;
-    margin-top: 10vh;
-    display: flex;
-    flex-wrap: nowrap;
-    align-items: center;
-    justify-content: space-between;
-    
-  }
-  
+  height: 6.34vh;
+  width: 6vw;
+  margin-top: 10vh;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+}
 
-  .MainMC{
-    height: 100vh;
-    width: 85vw;
-    background: linear-gradient(180deg, #5E44FF 33%, black 85%);
-    padding: 2vw 3vw;
-    display: flex;
-    flex-wrap: nowrap;
-    flex-direction: column;
-    color:white;
-  }
+.MainMC {
+  height: 100vh;
+  width: 85vw;
+  background: linear-gradient(180deg, #5e44ff 33%, black 85%);
+  padding: 2vw 3vw;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  color: white;
+}
 
-  #botãoplay{
+#botãoplay {
+  width: 3.2vw;
+}
 
-    width: 3.2vw;
-  }
+#linha {
+  width: 80vw;
+}
 
-  #linha{
-    width: 80vw;
-  }
-
-  #genero{
-    margin-right: 62vh ;
-  }
-  #generoMusica{
-    height: 6vh;
-  }
-  #lixo{
-    margin-left: 5vh ;
-  }
+#genero {
+  margin-right: 62vh;
+}
+#generoMusica {
+  height: 6vh;
+}
+#lixo {
+  margin-left: 5vh;
+}

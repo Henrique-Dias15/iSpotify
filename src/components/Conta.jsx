@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
-import "./Desktop1.css";
+import React from "react";
+import "./Conta.css";
+import { useEffect, useState } from "react";
 import Musicas from "./Musicas.jsx";
 import { useParams } from "react-router-dom";
 import api from "./api";
@@ -14,20 +15,13 @@ import botaodownload from "/src/assets/symbols/botãoDownload.svg";
 import logoutimg from "/src/assets/symbols/logout.svg";
 import linha from "/src/assets/symbols/linha.svg";
 import relogio from "/src/assets/symbols/relogio.svg";
+import PaginaCadastro from "./PaginaCadastro";
+import Alert from "@mui/material/Alert";
+import AlertTitle from "@mui/material/AlertTitle";
+import Stack from "@mui/material/Stack";
+import Snackbar from "@mui/material/Snackbar";
 
-function Desktop1() {
-  const { id } = useParams();
-  const [fotoArtistas, setImagens] = useState([]);
-
-  async function getArtistById() {
-    try {
-      const response = await api.get(`/artists/${id}`);
-      setImagens(response.data);
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
+function Conta() {
   const navigate = useNavigate();
   async function logout() {
     try {
@@ -37,19 +31,6 @@ function Desktop1() {
       alert(error.response?.data || "Erro desconhecido");
     }
   }
-
-  async function getArtistById() {
-    try {
-      const response = await api.get(`/artists/${id}`);
-      setImagens(response.data);
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-  useEffect(() => {
-    getArtistById();
-  }, []);
 
   return (
     <div className="Display">
@@ -93,37 +74,21 @@ function Desktop1() {
           </button>
         </div>
       </div>
-
-      <div className="Main">
-        <div className="Infos">
-          <img src={fotoArtistas.image} />
-          <div className="InfosTexto">
-            <h2>ARTISTA</h2>
-            <h1>{fotoArtistas.name}</h1>
-          </div>
-        </div>
-
-        <div className="Botões">
-          <input type="image" src={botaoplay} id="coração" />
-          <input type="image" src={coracaonovo} id="coração" />
-          <input type="image" src={botaodownload} id="download" />
-          <input type="image" src={pontos} id="pontos" />
-        </div>
-
-        <div className="Playlist">
-          <div className="Cabeçalho">
-            <p>#TÍTULO</p>
-            <p id="album">Gênero</p>
-            <img src={relogio} alt="" id="relógio" />
-          </div>
-          <img className="Divisao" src={linha} alt="" />
-          <div className="MusicasPagina">
-            <Musicas id="coraçãomsc1" />
-          </div>
+      <div className="PaginaLogin">
+        <div className="FormularioConta">
+          <h1>Minha Conta</h1>
+          <input className="inputEmail" type="email" placeholder="Email" />
+          <input
+            className="inputPassword"
+            type="password"
+            placeholder="Senha"
+          />
+          <button className="btnTrocarEmail">Trocar Email</button>
+          <button className="btnTrocarSenha">Trocar Senha</button>
         </div>
       </div>
     </div>
   );
 }
 
-export default Desktop1;
+export default Conta;
