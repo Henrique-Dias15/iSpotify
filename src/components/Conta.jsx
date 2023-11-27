@@ -62,6 +62,18 @@ function Conta() {
     }
   }
 
+  async function TrocarSenha(){
+    try{
+      await api.put(`/users/${useDados.id}`, {
+        password : novaSenha,
+      });
+      dadosUser();
+    }catch (error){
+        alert(error.response?.data || "Erro desconhecido");
+    }
+  }
+
+
   useEffect(() => {
     dadosUser();
   }, []); 
@@ -75,9 +87,9 @@ function Conta() {
     if( novaSenha === confirmaSenha /* adcionar verificação da senha atual */ ){
     TrocarSenha();
     closeModal2();
-    } else {
-      alert(error.response?.data || "Informações sobre a senha estão erradas");
-    }
+    } else 
+      alert( "Informações sobre a senha estão erradas");
+    
      
   }
 
@@ -144,9 +156,9 @@ function Conta() {
           <button className="btnTrocarSenha" onClick={openModal2}>Trocar Senha</button>
           <Modal style={customStyles} className="mdTrocaSenha" isOpen={isModalOpen2} onRequestClose={closeModal}>
             <h1>Nova Senha</h1>
-            <input type="email" className="inputPassword"  placeholder="Senha atual"/>
-            <input type="email" className="inputPassword" value={novaSenha}  onChange={(e) => {setNovaSenha(e.target.value); }}placeholder="Nova Senha"/>
-            <input type="email" className="inputPassword" value={confirmaSenha}  onChange={(e) => {setConfirmaNovaSenha(e.target.value); }}placeholder="Confirmar nova Senha"/>
+            <input type="password" className="inputPassword"  placeholder="Senha atual"/>
+            <input type="password" className="inputPassword" value={novaSenha}  onChange={(e) => {setNovaSenha(e.target.value); }}placeholder="Nova Senha"/>
+            <input type="password" className="inputPassword" value={confirmaSenha}  onChange={(e) => {setConfirmaNovaSenha(e.target.value); }}placeholder="Confirmar nova Senha"/>
             <div className="mdBotoes">
               <button id="mdCancelar" onClick={closeModal2}>Cancelar</button>
               <button id="mdConfirmar" onClick={handleConfirmarSenha}>Confirmar</button>
