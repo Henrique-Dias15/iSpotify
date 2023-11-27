@@ -15,7 +15,9 @@ function Conta() {
   const [useDados, changeDados] = useState ([]);
   const [isModalOpen, setModalOpen] = useState(false);
   const [novoEmail, setNovoEmail] = useState("");
-
+  const [isModalOpen2, setModalOpen2] = useState(false);
+  const [novaSenha, setNovaSenha] = useState("");
+  const [confirmaSenha, setConfirmaNovaSenha] = useState("");
 
 
   const customStyles = {
@@ -26,6 +28,10 @@ function Conta() {
 
   const openModal = () => setModalOpen(true);
   const closeModal = () => setModalOpen(false);
+  const openModal2 = () => setModalOpen2(true);
+  const closeModal2 = () => setModalOpen2(false);
+
+
 
   async function logout() {
     try {
@@ -64,6 +70,18 @@ function Conta() {
     TrocarEmail();
     closeModal();
   }
+
+  function handleConfirmarSenha(){
+    if( novaSenha === confirmaSenha /* adcionar verificação da senha atual */ ){
+    TrocarSenha();
+    closeModal2();
+    } else {
+      alert(error.response?.data || "Informações sobre a senha estão erradas");
+    }
+     
+  }
+
+
 
   return (
     <div className="Display">
@@ -117,15 +135,23 @@ function Conta() {
           <button className="btnTrocarEmail" onClick={openModal}>Trocar Email</button>
           <Modal style={customStyles} className="mdTrocaSenha" isOpen={isModalOpen} onRequestClose={closeModal}>
             <h1>Novo Email</h1>
-            <input type="email" className="inputEmail" value={novoEmail}  onChange={(e) => {
-            setNovoEmail(e.target.value);
-          }}placeholder="Email"/>
+            <input type="email" className="inputEmail" value={novoEmail}  onChange={(e) => {setNovoEmail(e.target.value); }}placeholder="Email"/>
             <div className="mdBotoes">
               <button id="mdCancelar" onClick={closeModal}>Cancelar</button>
               <button id="mdConfirmar" onClick={handleConfirmar}>Confirmar</button>
             </div>
           </Modal>
-          <button className="btnTrocarSenha">Trocar Senha</button>
+          <button className="btnTrocarSenha" onClick={openModal2}>Trocar Senha</button>
+          <Modal style={customStyles} className="mdTrocaSenha" isOpen={isModalOpen2} onRequestClose={closeModal}>
+            <h1>Nova Senha</h1>
+            <input type="email" className="inputPassword"  placeholder="Senha atual"/>
+            <input type="email" className="inputPassword" value={novaSenha}  onChange={(e) => {setNovaSenha(e.target.value); }}placeholder="Nova Senha"/>
+            <input type="email" className="inputPassword" value={confirmaSenha}  onChange={(e) => {setConfirmaNovaSenha(e.target.value); }}placeholder="Confirmar nova Senha"/>
+            <div className="mdBotoes">
+              <button id="mdCancelar" onClick={closeModal2}>Cancelar</button>
+              <button id="mdConfirmar" onClick={handleConfirmarSenha}>Confirmar</button>
+            </div>
+          </Modal>
         </div>
       </div>
     </div>
